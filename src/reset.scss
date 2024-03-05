@@ -1,0 +1,199 @@
+// Правила для размера блока
+*,
+*::before,
+*::after {
+	box-sizing: border-box; // Устанавливаем box-sizing на border-box для всех элементов
+}
+
+// Предотвращаем увеличение размера шрифта
+html {
+	-moz-text-size-adjust: none; // Для Firefox
+	-webkit-text-size-adjust: none; // Для Chrome, Safari
+	text-size-adjust: none; // Общее правило
+	overflow-x: hidden;
+}
+
+html,
+body {
+	scroll-behavior: smooth;
+}
+
+/* Стилизация полосы прокрутки */
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #555;
+}
+
+// Удаляем стандартные отступы
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+	margin: 0; // Устанавливаем отступ в 0
+}
+body {
+	overflow-x: hidden;
+	padding-top: 50px;
+}
+// Удаляем стили списка для ul, ol элементов с ролью list
+ul,
+ul[role="list"],
+ol[role="list"] {
+	list-style: none; // Убираем маркеры списка
+}
+
+body {
+	background: radial-gradient(
+		circle,
+		rgba(245, 219, 230, 0.829) 0%,
+		rgba(189, 212, 238, 0.856) 100%
+	);
+}
+// Устанавливаем меньшую высоту строки для заголовков и интерактивных элементов
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+label {
+	line-height: 1.1; // Устанавливаем высоту строки в 1.1
+}
+
+// Балансируем перенос текста на заголовках
+h1,
+h2,
+h3,
+h4 {
+	text-wrap: balance; // Распределяем текст равномерно
+}
+
+// Элементы a, которые не имеют класса, получают стандартные стили
+a:not([class]) {
+	text-decoration-skip-ink: auto; // Пропускаем чернила при оформлении текста
+	color: currentColor; // Цвет текста соответствует текущему цвету текста
+}
+
+a {
+	text-decoration: none;
+	color: inherit;
+	position: relative;
+}
+
+// Делаем работу с изображениями проще
+img,
+picture {
+	max-width: 100%; // Максимальная ширина изображения - 100%
+	display: block; // Изображение отображается как блочный элемент
+}
+
+// Наследуем шрифты для ввода и кнопок
+input,
+button,
+textarea,
+select {
+	font: inherit; // Шрифт наследуется от родительского элемента
+}
+
+// Убеждаемся, что textarea без атрибута rows не слишком маленькая
+textarea:not([rows]) {
+	min-height: 10em; // Минимальная высота - 10em
+}
+
+// Любой элемент, к которому было привязано, должен иметь дополнительный отступ прокрутки
+:target {
+	scroll-margin-block: 5ex; // Отступ прокрутки - 5ex
+}
+
+.spinner-cube {
+	margin: 0 auto;
+	width: 60px;
+	height: 60px;
+	position: relative;
+
+	div {
+		background-color: #03ffff;
+		width: 20px;
+		height: 20px;
+		position: absolute;
+		top: 30vh;
+		left: 0;
+		-webkit-animation: cuberotate 1.8s infinite ease-in-out;
+		animation: cuberotate 1.8s infinite ease-in-out;
+
+		&:nth-child(2) {
+			-webkit-animation-delay: -0.9s;
+			animation-delay: -0.9s;
+		}
+	}
+}
+
+@-webkit-keyframes cuberotate {
+	25% {
+		-webkit-transform: translateX(22px) rotate(-90deg) scale(0.5);
+		background: rgb(255, 0, 0);
+	}
+
+	50% {
+		-webkit-transform: translateX(22px) translateY(22px) rotate(-180deg);
+		background: rgb(0, 0, 255);
+	}
+
+	75% {
+		-webkit-transform: translateX(0px) translateY(22px) rotate(-270deg)
+			scale(0.5);
+		background: rgb(0, 255, 0);
+	}
+
+	100% {
+		-webkit-transform: rotate(-360deg);
+		background: rgb(170, 0, 255);
+	}
+}
+
+@keyframes cuberotate {
+	25% {
+		transform: translateX(42px) rotate(-90deg) scale(0.5);
+		background: rgb(255, 0, 0);
+	}
+
+	50% {
+		transform: translateX(42px) translateY(42px) rotate(-179deg);
+		background: rgb(0, 0, 255);
+	}
+
+	50.1% {
+		transform: translateX(42px) translateY(42px) rotate(-180deg);
+		background: rgb(0, 255, 0);
+	}
+
+	75% {
+		transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+		background: rgb(170, 0, 255);
+	}
+
+	100% {
+		transform: rotate(-360deg);
+		background: #ff0095;
+	}
+}

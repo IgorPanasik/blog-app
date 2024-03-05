@@ -1,0 +1,30 @@
+.home {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+
+	img {
+		max-width: 755px;
+		padding: 10px;
+		object-fit: cover;
+		border-radius: 20px;
+	}
+
+	.spinner-cube {
+		div {
+			top: -50vh;
+		}
+	}
+}
+
+@media screen and (max-width: 670px) {
+	.home {
+		justify-content: flex-start;
+
+		.posts {
+			.post {
+				max-width: 280px;
+			}
+		}
+	}
+}

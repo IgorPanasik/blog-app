@@ -1,0 +1,249 @@
+@import "../../variables";
+
+$icon-width: 70px;
+
+$animation-duration: 0.3s;
+
+@keyframes colorChange {
+	0% {
+		stroke: currentColor;
+	}
+	100% {
+		stroke: targetColor;
+	}
+}
+
+@keyframes shake {
+	0% {
+		transform: translate(1px, 1px) rotate(0deg);
+	}
+	10% {
+		transform: translate(-1px, -2px) rotate(-1deg);
+	}
+	20% {
+		transform: translate(-3px, 0px) rotate(1deg);
+	}
+	30% {
+		transform: translate(3px, 2px) rotate(0deg);
+	}
+	40% {
+		transform: translate(1px, -1px) rotate(1deg);
+	}
+	50% {
+		transform: translate(-1px, 2px) rotate(-1deg);
+	}
+	60% {
+		transform: translate(-3px, 1px) rotate(0deg);
+	}
+	70% {
+		transform: translate(3px, 1px) rotate(-1deg);
+	}
+	80% {
+		transform: translate(-1px, -1px) rotate(1deg);
+	}
+	90% {
+		transform: translate(1px, 2px) rotate(0deg);
+	}
+	100% {
+		transform: translate(1px, -2px) rotate(-1deg);
+	}
+}
+
+.single {
+	.sidebar {
+		margin-top: 70px;
+	}
+}
+
+.single__post {
+	flex: 9;
+	margin-top: 50px;
+
+	&-wrapper {
+		display: flex;
+		flex-direction: column;
+		padding: 20px;
+		padding-right: 0;
+
+		align-items: center;
+	}
+
+	&-image {
+		width: 70%;
+
+		object-fit: cover;
+		border-radius: 7px;
+	}
+
+	&-title {
+		text-align: center;
+		margin: 10px;
+		font-family: $Lora;
+		font-size: 28px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		color: $color-title;
+		text-align: center;
+	}
+
+	.single__postTitle-input {
+		margin: 10px;
+		font-family: $Lora;
+		font-size: 28px;
+		text-align: center;
+		border: none;
+		background: rgba(240, 228, 228, 0.733);
+		color: rgb(87, 83, 83);
+		border-radius: 7px;
+		padding: 5px 10px;
+		backdrop-filter: blur(10px);
+		border-bottom: 2px solid rgb(7, 201, 94);
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&-edit {
+		width: $icon-width;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 5px;
+
+		.wrapper__edit {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 30px;
+		}
+		.wrapper__delete {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 37px;
+		}
+
+		.singe__post-item {
+			cursor: pointer;
+
+			&.delete-icon {
+				&:hover {
+					rect,
+					polyline {
+						transform: translateY(-7px);
+						transition: transform $animation-duration ease-in-out;
+					}
+
+					.color {
+						stroke: rgb(255, 3, 3);
+						animation: colorChange 0.5s, shake 0.5s;
+					}
+
+					.color-white {
+						stroke: rgb(255, 4, 4);
+						animation: colorChange 0.5s, shake 0.5s;
+					}
+				}
+			}
+
+			&.edit-icon {
+				fill: rgb(223, 195, 195);
+
+				&:hover {
+					path {
+						fill: rgb(0, 102, 255);
+						transition: fill $animation-duration ease-in-out;
+					}
+				}
+			}
+		}
+	}
+
+	.single__post-info {
+		margin-bottom: 20px;
+		display: flex;
+		justify-content: space-between;
+		font-size: 16px;
+		font-family: $Varela;
+		color: $color-pod-cat;
+		width: 100%;
+		.single__post-author {
+			text-transform: capitalize;
+		}
+	}
+
+	.single__post-description {
+		font-size: 18px;
+		color: $color-description;
+		line-height: 25px;
+		background: #bcb7c4d7;
+		padding: 5px;
+		border-radius: 5px 10px;
+
+		&::first-letter {
+			margin-left: 20px;
+			font-size: 30px;
+			font-weight: 600;
+		}
+	}
+
+	.single__postDesc-input {
+		margin: 10px;
+		font-family: $Lora;
+		font-size: 20px;
+		padding: 10px;
+		border: none;
+		background: rgba(240, 228, 228, 0.733);
+		color: rgba(87, 83, 83, 0.863);
+		border-radius: 7px;
+
+		backdrop-filter: blur(10px);
+		border-bottom: 2px solid rgb(169, 7, 201);
+		resize: vertical;
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	.single__post-apply {
+		border: none;
+		border-radius: 10px;
+		font-family: $Lora;
+		width: 22%;
+		padding: 5px;
+		align-self: flex-end;
+		margin-top: 10px;
+		transition: background 0.3s ease-in, transform 0.3s ease-in,
+			box-shadow 0.3s ease-in-out;
+
+		box-shadow: 3px 3px 10px 1px #a890cd;
+		cursor: pointer;
+
+		&:hover {
+			background: rgba(216, 214, 214, 0.685);
+		}
+
+		&:active {
+			transform: scale(0.98);
+			box-shadow: -2px -2px 10px 1px #a890cd;
+		}
+
+		span {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 7px;
+			font-size: 18px;
+		}
+
+		.send {
+			width: 25%;
+		}
+		&:focus {
+			outline: none;
+		}
+	}
+}

@@ -1,0 +1,234 @@
+@import "../../variables";
+@import "../../mixins/mixins";
+
+.login {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: $gradient, url(./background-login.jpg);
+	background-repeat: no-repeat;
+	height: 100vh;
+	background-size: cover;
+	font-family: $Lora;
+	padding: 20px 0;
+
+	.login__title {
+		margin-top: 50px;
+		font-size: 50px;
+		color: rgba(14, 13, 13, 0.945);
+	}
+
+	.login__form {
+		@include form-styles;
+		max-width: 300px;
+		height: 420px;
+		width: 100%;
+
+		label {
+			margin: 10px 0;
+			transition: transform 200ms, color 200ms;
+			font-size: 17px;
+			text-align: center;
+		}
+
+		.login__input,
+		.login__password {
+			padding: 10px;
+			width: 100%;
+			background: inherit;
+			border: none;
+			border-radius: 10px;
+			outline: none;
+			color: rgba(34, 34, 34, 0.836);
+			transition: background 0.3s ease-in-out;
+
+			&::placeholder {
+				color: rgba(34, 34, 34, 0.836);
+				font-size: 14px;
+			}
+		}
+
+		.login__button {
+			margin-top: 20px;
+			@include button-styles;
+			background: rgba(3, 22, 83, 0.863);
+			margin-bottom: 12px;
+
+			color: rgb(174, 184, 192);
+
+			&:hover {
+				background: rgba(3, 22, 83, 0.98);
+			}
+		}
+
+		.login__button:disabled {
+			cursor: not-allowed;
+			background: rgba(3, 22, 83, 0.4);
+		}
+
+		.reset__link {
+			width: 50%;
+			margin-left: auto;
+			text-align: center;
+			margin-bottom: 12px;
+			font-size: 14px;
+			font-style: italic;
+			color: rgb(6, 6, 80);
+
+			&:hover {
+				text-decoration: underline;
+
+				&:hover svg > path {
+					transition: 0.3s fill ease-in-out;
+					fill: #091438;
+				}
+			}
+		}
+	}
+	.register__button {
+		@include button-styles;
+
+		.nav__link-register {
+			text-decoration: none;
+			color: inherit;
+			width: 100%;
+			display: block;
+		}
+	}
+
+	.error-message {
+		color: rgba(255, 0, 0, 0.897);
+		background: #ecadada4;
+		padding: 10px 15px;
+		font-size: 15px;
+		margin-bottom: 10px;
+		border-radius: 5px;
+		text-align: center;
+		font-family: monospace, serif;
+		font-weight: bold;
+	}
+}
+
+.ReactModal__Overlay {
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+	transform: scale(0);
+}
+
+.ReactModal__Overlay--after-open {
+	opacity: 1;
+	transform: scale(1);
+}
+
+.ReactModal__Overlay--before-close {
+	opacity: 0;
+	transform: scale(0);
+}
+
+.customOverlay {
+	background-color: rgba(53, 52, 52, 0.664);
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	top: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	backdrop-filter: blur(5px);
+	pointer-events: none;
+	z-index: 5;
+}
+
+.customModal {
+	color: rgb(208, 211, 214);
+	width: 50%;
+	height: 50%;
+	margin: 0 auto;
+	padding: 20px;
+	background: rgba(24, 50, 73, 0.856);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 30px;
+	border-radius: 7px;
+	font-family: $Lora;
+	border: 1px solid rgb(255, 0, 0);
+	pointer-events: auto;
+
+	h2 {
+		font-size: 25px;
+		text-align: center;
+		text-wrap: balance;
+	}
+
+	button {
+		cursor: pointer;
+		padding: 10px 40px;
+		border: none;
+		border-radius: 5px;
+		background: rgb(163, 132, 132);
+		transition: transform 0.3s ease;
+	}
+
+	button:active {
+		transform: scale(0.95);
+		transition: transform 0.3s ease;
+	}
+}
+
+.spinner-cube {
+	div {
+		top: -10vh;
+	}
+}
+
+@media screen and (max-width: 835px) {
+	.customModal {
+		h2 {
+			font-size: 18px;
+		}
+	}
+}
+
+@media screen and (max-width: 602px) {
+	.customModal {
+		h2 {
+			font-size: 14px;
+		}
+	}
+}
+
+@media screen and (max-width: 350px) {
+	.login {
+		.login__title {
+			font-size: 40px;
+		}
+		.login__form {
+			max-width: 250px;
+			width: 100%;
+
+			label {
+				text-align: left;
+				font-size: 14px;
+			}
+
+			.login__input,
+			.login__password {
+				font-size: 14px;
+				&::placeholder {
+					font-size: 12px;
+				}
+			}
+
+			button {
+				font-size: 12px;
+			}
+
+			.reset__link {
+				width: 60%;
+			}
+		}
+	}
+}

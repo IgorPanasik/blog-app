@@ -1,0 +1,49 @@
+@mixin form-styles {
+	margin-top: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	background: rgba(196, 178, 178, 0.3);
+	backdrop-filter: blur(10px);
+	padding: 5px 18px;
+	border-radius: 7px;
+
+	label {
+		margin: 10px 0;
+	}
+
+	.input,
+	.password {
+		padding: 10px;
+		background: inherit;
+		border: none;
+		width: 100%;
+		border-radius: 10px;
+		outline: none;
+		color: rgba(34, 34, 34, 0.836);
+		transition: background 0.3s ease-in-out;
+
+		&:focus {
+			outline: none;
+		}
+
+		&::placeholder {
+			color: rgba(34, 34, 34, 0.836);
+		}
+	}
+}
+
+@mixin button-styles {
+	padding: 10px;
+	border: none;
+	border-radius: 10px;
+	background: rgba(3, 119, 3, 0.89);
+	color: rgb(174, 184, 192);
+	cursor: pointer;
+	transition: 0.3s background ease-in-out;
+	margin-bottom: 18px;
+
+	&:hover {
+		background: rgba(3, 119, 3, 0.98);
+	}
+}

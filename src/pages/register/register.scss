@@ -1,0 +1,128 @@
+@import "../../variables";
+@import "../../mixins/mixins";
+
+.register {
+	padding: 20px 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background: $gradient, url(./background-register.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	font-family: $Lora;
+
+	.register__title {
+		font-size: 50px;
+		color: rgba(14, 13, 13, 0.945);
+	}
+
+	.register__form {
+		@include form-styles;
+		margin-bottom: 10px;
+
+		label {
+			margin: 10px 0;
+		}
+
+		.register__input,
+		.register__password {
+			padding: 10px;
+			background: inherit;
+			border: none;
+			border-radius: 10px;
+			outline: none;
+			color: rgb(14, 13, 13);
+			transition: background 0.3s ease-in-out;
+
+			&:focus {
+				outline: none;
+			}
+
+			&::placeholder {
+				color: rgb(0, 0, 0);
+				font-size: 14px;
+			}
+		}
+
+		.password__hint {
+			width: 300px;
+			font-size: 12px;
+			padding: 5px;
+			color: rgb(184, 0, 0);
+			font-weight: 600;
+		}
+
+		.register__button {
+			@include button-styles;
+			margin-top: 10px;
+			background: rgba(3, 22, 83, 0.863);
+			transition: 0.3s background ease-in-out;
+			&:hover {
+				background: rgba(3, 22, 83, 0.98);
+			}
+		}
+	}
+
+	.login__button {
+		@include button-styles;
+
+		.nav__link-login {
+			text-decoration: none;
+			color: inherit;
+			width: 100%;
+			display: block;
+		}
+	}
+}
+
+@media screen and (max-width: 540px) {
+	.register {
+		.register__form {
+			max-width: 300px;
+		}
+	}
+}
+
+@media screen and (max-width: 480px) {
+	.register {
+		.register__title {
+			font-size: 40px;
+		}
+	}
+}
+
+@media screen and (max-width: 330px) {
+	.register {
+		.register__form {
+			max-width: 250px;
+
+			label {
+				font-size: 14px;
+			}
+
+			.register__input,
+			.register__password {
+				font-size: 14px;
+				&::placeholder {
+					font-size: 12px;
+				}
+			}
+
+			.password__hint {
+				max-width: 280px;
+				width: 100%;
+				font-size: 11px;
+			}
+
+			button {
+				font-size: 12px;
+			}
+
+			.register__button {
+				margin-bottom: 10px;
+			}
+		}
+	}
+}

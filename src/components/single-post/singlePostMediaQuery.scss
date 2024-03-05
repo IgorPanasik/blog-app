@@ -1,0 +1,33 @@
+.single__post-wrapper {
+	.single__postTitle-input {
+		font-size: clamp(12px, 1.5vw, 18px);
+	}
+	.single__postDesc-input {
+		font-size: clamp(12px, 1.5vw, 16px);
+	}
+	.single__post-apply {
+		width: clamp(100px, 25vw, 170px);
+	}
+	.single__post-title {
+		font-size: clamp(15px, 2vw, 22px);
+		gap: 10px;
+	}
+	.single__post-description {
+		font-size: clamp(12px, 1.5vw, 16px);
+	}
+	.wrapper__edit {
+		width: clamp(20px, 3vw, 25px);
+	}
+	.wrapper__delete {
+		width: clamp(20px, 3vw, 28px);
+	}
+	.single__post-info span {
+		font-size: clamp(12px, 2vw, 15px);
+	}
+	.sidebar {
+		&.hide {
+			height: clamp(200px, 30vh, 300px);
+		}
+	}
+	padding: clamp(10px, 2vw, 20px);
+}

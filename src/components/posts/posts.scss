@@ -1,0 +1,46 @@
+@import "../../_variables";
+
+.posts {
+	display: flex;
+	flex-wrap: wrap;
+	flex: 9;
+	margin: 20px;
+
+	.LinkUp {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 5px;
+		font-size: 14px;
+		font-family: $Lora;
+		cursor: pointer;
+		bottom: 0;
+		transform: translateX(50%);
+		position: absolute;
+		background: rgb(199, 198, 198);
+		padding: 5px 25px;
+		border-radius: 7px;
+		transition: 0.3s background ease-in-out;
+
+		&:hover {
+			background: rgb(145, 145, 145);
+		}
+	}
+}
+
+@media screen and (max-width: 784px) {
+	.posts {
+		flex: 3;
+		margin-right: 0;
+		margin-left: 0;
+	}
+}
+
+@media screen and (max-width: 726px) {
+	.posts {
+		max-width: 380px;
+		width: 100%;
+	}
+}
+@media screen and (max-width: 441px) {
+}

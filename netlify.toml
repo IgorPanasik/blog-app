@@ -1,0 +1,32 @@
+[build]
+  functions = "netlify/functions/"
+
+[[plugins]]
+  package = "@netlify/plugin-functions-install-core"
+
+[functions]
+  [functions.api]
+  path = "netlify/functions/index"
+  
+  [dev]
+  targetPort = 3000
+
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/index"
+  status = 200
+
+[[redirects]]
+  from = "/blog-app/assets/*"
+  to = "/dist/:splat" 
+  status = 200
+
+  [[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[[headers]]
+  for = "/blog-app/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
