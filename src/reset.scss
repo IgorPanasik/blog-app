@@ -18,24 +18,49 @@ body {
 	scroll-behavior: smooth;
 }
 
-/* Стилизация полосы прокрутки */
+/* Define the scrollbar style */
 ::-webkit-scrollbar {
 	width: 10px;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-	background: #f1f1f1;
-}
-
-/* Handle */
+/* Define the thumb style */
 ::-webkit-scrollbar-thumb {
 	background: #888;
+
+	&:hover {
+		background: #555;
+	}
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-	background: #555;
+/* Define the track style */
+::-webkit-scrollbar-track {
+	background-color: #1b1b1b;
+}
+
+/* Style the beginning section of the scrollbar track */
+::-webkit-scrollbar-track-piece:vertical:start {
+	background-color: #1b1b1b;
+}
+
+/* Style the end section of the scrollbar track */
+::-webkit-scrollbar-track-piece:vertical:end {
+	background-color: #1b1b1b;
+}
+
+/* Define the button style */
+::-webkit-scrollbar-button:vertical {
+	background-color: #1b1b1b;
+	background-repeat: no-repeat;
+	background-size: 100%;
+	background-position: center;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23888888' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,165.66a8,8,0,0,1-11.32,0L128,91.31,53.66,165.66a8,8,0,0,1-11.32-11.32l80-80a8,8,0,0,1,11.32,0l80,80A8,8,0,0,1,213.66,165.66Z'%3E%3C/path%3E%3C/svg%3E");
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='%23888888' viewBox='0 0 256 256'%3E%3Cpath d='M213.66,101.66l-80,80a8,8,0,0,1-11.32,0l-80-80A8,8,0,0,1,53.66,90.34L128,164.69l74.34-74.35a8,8,0,0,1,11.32,11.32Z'%3E%3C/path%3E%3C/svg%3E");
 }
 
 // Удаляем стандартные отступы
